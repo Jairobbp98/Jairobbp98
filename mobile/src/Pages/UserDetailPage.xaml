@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="ManagementSystem.Mobile.Pages.UserDetailPage"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    Title="User Details"
+    BackgroundColor="#F9FAFB">
+
+    <ScrollView>
+        <VerticalStackLayout Padding="20" Spacing="16">
+
+            <Frame BackgroundColor="White" CornerRadius="12" Padding="20" BorderColor="#E5E7EB">
+                <VerticalStackLayout Spacing="16">
+                    <!-- Avatar -->
+                    <Frame
+                        BackgroundColor="#EFF6FF"
+                        BorderColor="#BFDBFE"
+                        CornerRadius="40"
+                        WidthRequest="80"
+                        HeightRequest="80"
+                        Padding="0"
+                        HorizontalOptions="Center">
+                        <Label
+                            Text="👤"
+                            FontSize="32"
+                            HorizontalOptions="Center"
+                            VerticalOptions="Center" />
+                    </Frame>
+
+                    <Label
+                        Text="User Details"
+                        FontSize="20"
+                        FontAttributes="Bold"
+                        TextColor="#1A1A1A"
+                        HorizontalOptions="Center" />
+                    <Label
+                        Text="Select a user to view details"
+                        FontSize="14"
+                        TextColor="#6B7280"
+                        HorizontalOptions="Center" />
+                </VerticalStackLayout>
+            </Frame>
+
+        </VerticalStackLayout>
+    </ScrollView>
+
+</ContentPage>

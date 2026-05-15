@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Shell
+    x:Class="ManagementSystem.Mobile.AppShell"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:pages="clr-namespace:ManagementSystem.Mobile.Pages"
+    Shell.FlyoutBehavior="Disabled">
+
+    <!-- Auth Routes (no tab bar) -->
+    <ShellContent
+        Route="login"
+        ContentTemplate="{DataTemplate pages:LoginPage}"
+        Shell.NavBarIsVisible="False" />
+
+    <!-- Main App with Tab Bar -->
+    <TabBar Route="main">
+        <Tab Title="Dashboard" Icon="home.png">
+            <ShellContent
+                Route="dashboard"
+                ContentTemplate="{DataTemplate pages:DashboardPage}" />
+        </Tab>
+        <Tab Title="Documents" Icon="document.png">
+            <ShellContent
+                Route="documents"
+                ContentTemplate="{DataTemplate pages:DocumentsPage}" />
+        </Tab>
+        <Tab Title="Users" Icon="users.png">
+            <ShellContent
+                Route="users"
+                ContentTemplate="{DataTemplate pages:UsersPage}" />
+        </Tab>
+    </TabBar>
+
+</Shell>

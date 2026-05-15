@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="ManagementSystem.Mobile.Pages.CompanyDetailPage"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    Title="Company Details"
+    BackgroundColor="#F9FAFB">
+
+    <ScrollView>
+        <VerticalStackLayout Padding="20" Spacing="16">
+            <Frame BackgroundColor="White" CornerRadius="12" Padding="20" BorderColor="#E5E7EB">
+                <VerticalStackLayout Spacing="8">
+                    <Label Text="🏢" FontSize="48" HorizontalOptions="Center" />
+                    <Label
+                        Text="Company Details"
+                        FontSize="20"
+                        FontAttributes="Bold"
+                        TextColor="#1A1A1A"
+                        HorizontalOptions="Center" />
+                    <Label
+                        Text="Select a company to view details"
+                        FontSize="14"
+                        TextColor="#6B7280"
+                        HorizontalOptions="Center" />
+                </VerticalStackLayout>
+            </Frame>
+        </VerticalStackLayout>
+    </ScrollView>
+
+</ContentPage>

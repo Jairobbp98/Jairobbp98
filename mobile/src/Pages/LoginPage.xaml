@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="ManagementSystem.Mobile.Pages.LoginPage"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:vm="clr-namespace:ManagementSystem.Mobile.ViewModels"
+    Shell.NavBarIsVisible="False"
+    BackgroundColor="#FFFFFF">
+
+    <ScrollView>
+        <Grid RowDefinitions="*,Auto,*" Padding="32">
+
+            <!-- Logo Area -->
+            <VerticalStackLayout Grid.Row="0" VerticalOptions="End" Spacing="8" Margin="0,0,0,40">
+                <Label
+                    Text="◆"
+                    FontSize="48"
+                    TextColor="#2F80ED"
+                    HorizontalOptions="Center" />
+                <Label
+                    Text="Management System"
+                    FontSize="28"
+                    FontAttributes="Bold"
+                    TextColor="#1A1A1A"
+                    HorizontalOptions="Center" />
+                <Label
+                    Text="Sign in to your account"
+                    FontSize="16"
+                    TextColor="#6B7280"
+                    HorizontalOptions="Center" />
+            </VerticalStackLayout>
+
+            <!-- Form Area -->
+            <VerticalStackLayout Grid.Row="1" Spacing="16">
+
+                <!-- Error Message -->
+                <Frame
+                    BackgroundColor="#FEF2F2"
+                    BorderColor="#FECACA"
+                    CornerRadius="8"
+                    Padding="12"
+                    IsVisible="{Binding HasError}">
+                    <Label
+                        Text="{Binding ErrorMessage}"
+                        TextColor="#DC2626"
+                        FontSize="14" />
+                </Frame>
+
+                <!-- Email Field -->
+                <VerticalStackLayout Spacing="6">
+                    <Label Text="Email" FontSize="14" FontAttributes="Bold" TextColor="#374151" />
+                    <Frame BorderColor="#D1D5DB" CornerRadius="8" Padding="0" BackgroundColor="White">
+                        <Entry
+                            Text="{Binding Email}"
+                            Placeholder="you@example.com"
+                            Keyboard="Email"
+                            FontSize="16"
+                            TextColor="#1A1A1A"
+                            PlaceholderColor="#9CA3AF"
+                            Margin="12,8" />
+                    </Frame>
+                </VerticalStackLayout>
+
+                <!-- Password Field -->
+                <VerticalStackLayout Spacing="6">
+                    <Label Text="Password" FontSize="14" FontAttributes="Bold" TextColor="#374151" />
+                    <Frame BorderColor="#D1D5DB" CornerRadius="8" Padding="0" BackgroundColor="White">
+                        <Entry
+                            Text="{Binding Password}"
+                            Placeholder="••••••••"
+                            IsPassword="True"
+                            FontSize="16"
+                            TextColor="#1A1A1A"
+                            PlaceholderColor="#9CA3AF"
+                            Margin="12,8" />
+                    </Frame>
+                </VerticalStackLayout>
+
+                <!-- Login Button -->
+                <Button
+                    Text="Sign In"
+                    Command="{Binding LoginCommand}"
+                    BackgroundColor="#2F80ED"
+                    TextColor="White"
+                    FontSize="16"
+                    FontAttributes="Bold"
+                    CornerRadius="8"
+                    HeightRequest="48"
+                    IsEnabled="{Binding IsLoading, Converter={StaticResource InverseBoolConverter}}" />
+
+                <!-- Loading Indicator -->
+                <ActivityIndicator
+                    IsRunning="{Binding IsLoading}"
+                    IsVisible="{Binding IsLoading}"
+                    Color="#2F80ED"
+                    HorizontalOptions="Center" />
+
+                <!-- Register Link -->
+                <HorizontalStackLayout HorizontalOptions="Center" Spacing="4">
+                    <Label Text="Don't have an account?" TextColor="#6B7280" FontSize="14" />
+                    <Label
+                        Text="Sign up"
+                        TextColor="#2F80ED"
+                        FontSize="14"
+                        FontAttributes="Bold">
+                        <Label.GestureRecognizers>
+                            <TapGestureRecognizer Command="{Binding NavigateToRegisterCommand}" />
+                        </Label.GestureRecognizers>
+                    </Label>
+                </HorizontalStackLayout>
+
+            </VerticalStackLayout>
+
+            <!-- Bottom spacer -->
+            <BoxView Grid.Row="2" />
+
+        </Grid>
+    </ScrollView>
+</ContentPage>

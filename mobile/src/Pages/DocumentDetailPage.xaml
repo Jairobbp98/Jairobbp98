@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="ManagementSystem.Mobile.Pages.DocumentDetailPage"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    Title="{Binding Document.Title}"
+    BackgroundColor="#FFFFFF">
+
+    <Grid RowDefinitions="Auto,*,Auto">
+
+        <!-- Toolbar -->
+        <HorizontalStackLayout Grid.Row="0" Padding="16,8" Spacing="8" BackgroundColor="#F9FAFB">
+            <Button Text="PDF" BackgroundColor="#EF4444" TextColor="White"
+                    CornerRadius="6" FontSize="13" Padding="12,6"
+                    Command="{Binding ExportPdfCommand}" />
+            <Button Text="Markdown" BackgroundColor="#8B5CF6" TextColor="White"
+                    CornerRadius="6" FontSize="13" Padding="12,6"
+                    Command="{Binding ExportMarkdownCommand}" />
+            <Label
+                Text="{Binding Document.Status}"
+                BackgroundColor="#FEF9C3"
+                TextColor="#CA8A04"
+                FontSize="12"
+                Padding="8,4"
+                VerticalOptions="Center" />
+        </HorizontalStackLayout>
+
+        <!-- Content Editor -->
+        <Editor
+            Grid.Row="1"
+            Text="{Binding Content}"
+            Placeholder="Start writing..."
+            FontSize="16"
+            TextColor="#1A1A1A"
+            BackgroundColor="White"
+            AutoSize="TextChanges"
+            Margin="16,8" />
+
+        <!-- Save Button -->
+        <Button
+            Grid.Row="2"
+            Text="Save Document"
+            Command="{Binding SaveCommand}"
+            BackgroundColor="#2F80ED"
+            TextColor="White"
+            FontSize="16"
+            CornerRadius="0"
+            HeightRequest="52" />
+
+    </Grid>
+
+</ContentPage>

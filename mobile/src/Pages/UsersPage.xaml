@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="ManagementSystem.Mobile.Pages.UsersPage"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:vm="clr-namespace:ManagementSystem.Mobile.ViewModels"
+    Title="Users"
+    BackgroundColor="#F9FAFB">
+
+    <RefreshView Command="{Binding LoadUsersCommand}" IsRefreshing="{Binding IsLoading}">
+        <CollectionView ItemsSource="{Binding Users}">
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <Frame
+                        BackgroundColor="White"
+                        CornerRadius="0"
+                        Padding="16"
+                        Margin="0,0,0,1"
+                        BorderColor="#F3F4F6">
+                        <Grid ColumnDefinitions="Auto,*,Auto" ColumnSpacing="12">
+
+                            <!-- Avatar Circle -->
+                            <Frame
+                                Grid.Column="0"
+                                BackgroundColor="#EFF6FF"
+                                BorderColor="#BFDBFE"
+                                CornerRadius="20"
+                                WidthRequest="40"
+                                HeightRequest="40"
+                                Padding="0"
+                                HorizontalOptions="Center"
+                                VerticalOptions="Center">
+                                <Label
+                                    Text="{Binding FirstName[0]}"
+                                    FontSize="16"
+                                    FontAttributes="Bold"
+                                    TextColor="#2F80ED"
+                                    HorizontalOptions="Center"
+                                    VerticalOptions="Center" />
+                            </Frame>
+
+                            <!-- User Info -->
+                            <VerticalStackLayout Grid.Column="1" VerticalOptions="Center" Spacing="2">
+                                <Label
+                                    Text="{Binding FullName}"
+                                    FontSize="15"
+                                    FontAttributes="Bold"
+                                    TextColor="#1A1A1A" />
+                                <Label
+                                    Text="{Binding Email}"
+                                    FontSize="13"
+                                    TextColor="#6B7280" />
+                            </VerticalStackLayout>
+
+                            <!-- Role Badge -->
+                            <Frame
+                                Grid.Column="2"
+                                BackgroundColor="#F0FDF4"
+                                BorderColor="#BBF7D0"
+                                CornerRadius="12"
+                                Padding="8,4"
+                                VerticalOptions="Center">
+                                <Label
+                                    Text="{Binding Role}"
+                                    FontSize="11"
+                                    TextColor="#16A34A" />
+                            </Frame>
+
+                        </Grid>
+                        <Frame.GestureRecognizers>
+                            <TapGestureRecognizer
+                                Command="{Binding Source={RelativeSource AncestorType={x:Type vm:UsersViewModel}}, Path=ViewUserDetailsCommand}"
+                                CommandParameter="{Binding .}" />
+                        </Frame.GestureRecognizers>
+                    </Frame>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+            <CollectionView.EmptyView>
+                <VerticalStackLayout HorizontalOptions="Center" VerticalOptions="Center" Spacing="16" Margin="40">
+                    <Label Text="👥" FontSize="64" HorizontalOptions="Center" />
+                    <Label
+                        Text="No users found"
+                        FontSize="18"
+                        FontAttributes="Bold"
+                        TextColor="#374151"
+                        HorizontalOptions="Center" />
+                </VerticalStackLayout>
+            </CollectionView.EmptyView>
+        </CollectionView>
+    </RefreshView>
+
+</ContentPage>

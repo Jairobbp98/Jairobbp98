@@ -1,0 +1,35 @@
+# Dependencies
+node_modules/
+.npm/
+
+# Build outputs
+dist/
+build/
+*.js.map
+
+# .NET
+bin/
+obj/
+*.user
+.vs/
+*.suo
+.DS_Store
+
+# Environment files
+.env
+*.env.local
+
+# Test coverage
+coverage/
+*.lcov
+
+# Logs
+*.log
+npm-debug.log*
+
+# Docker
+.docker/
+
+# OS
+.DS_Store
+Thumbs.db
