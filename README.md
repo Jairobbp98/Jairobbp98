@@ -44,7 +44,6 @@ Cada línea de código es una oportunidad para mejorar algo.
 📍 Managua, Nicaragua  
 📧 [jairobenjamin98@gmail.com](mailto:jairobenjamin98@gmail.com)  
 📱 +505 7678 9435  
-🌐 [LinkedIn](#) · [GitHub](#)
 
 ---
 
