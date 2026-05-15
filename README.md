@@ -49,7 +49,3 @@ Cada línea de código es una oportunidad para mejorar algo.
 
 ### ⚡ Fun fact
 Cuando no estoy programando, probablemente estoy diseñando una nueva arquitectura o probando ideas para automatizar mi entorno de desarrollo.
-
----
-
-⭐ *Si te gusta mi trabajo, deja una estrella en mis repos o colabora conmigo en algo genial.*
